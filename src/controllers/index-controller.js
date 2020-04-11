@@ -18,12 +18,13 @@ exports.getById = async(req, res, next) => {
     try {
         const data = await repository.getById(req.params.id);
        
-        if( data === [] ) {
+        if (data.length - 1){
             res.status(220).send({
-                message:  'Usuário não cadastrado!'
+                message:'Usuário não cadastrado'
             });
         }
         else { 
+            status:  Array.isArray(data),
             res.status(200).send(data);
         }
 
@@ -68,7 +69,7 @@ exports.put = async(req, res, next) => {
 exports.delete = async(req, res, next) => {
     try {
         const data = await repository.delete(req.params.id)
-        if( data === 0) {
+        if( data.length < 1 ) {
             res.status(220).send({
                 message: 'Usuário não cadastrado!'
             });

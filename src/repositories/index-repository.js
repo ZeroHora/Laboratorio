@@ -18,6 +18,7 @@ exports.getById = async(id) => {
                     .select('*')
                     .from(tabela)
                     .where(knex.raw('id = ?', id))
+        console.log('res :'+res)
     return res;
 }
 
