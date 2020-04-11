@@ -9,7 +9,7 @@ exports.get = async() => {
                     .select('*')
                     .from(tabela)
                     .orderBy('name', 'asc')
-    return res;
+    return res
 }
 
 exports.getById = async(id) => {
@@ -18,15 +18,14 @@ exports.getById = async(id) => {
                     .select('*')
                     .from(tabela)
                     .where(knex.raw('id = ?', id))
-        console.log('res :'+res)
-    return res;
+    return res
 }
 
 exports.create = async(objeto) => {
    
     const res = await knex (tabela)
                      .insert(objeto)
-    return res;
+    return res
 }
 
 exports.update = async(id,user) => {
@@ -34,7 +33,7 @@ exports.update = async(id,user) => {
     const res = await knex(tabela)
                     .update(objeto)
                     .where(knex.raw('id = ?', id))
-    return res;
+    return res
 }
 
 exports.delete = async(id) => {
@@ -43,6 +42,5 @@ exports.delete = async(id) => {
                      .delete()
                      .from(tabela)
                      .where(knex.raw('id = ?', id))
-    return res;
+    return res
 }
-
