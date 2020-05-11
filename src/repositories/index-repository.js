@@ -4,11 +4,13 @@ const knex = require('../adaptersDB/connectionDB')
 const tabela ='usuario'
 
 exports.get = async() => {
-
+    console.log('knex ',knex)
+    console.log('tabela ',tabela)
     const res = await knex
                     .select('*')
                     .from(tabela)
                     .orderBy('name', 'asc')
+               
     return res
 }
 
